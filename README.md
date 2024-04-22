@@ -107,8 +107,6 @@ npx prisma studio
 > },
 > ```
 
-````
-
 ```bash
 npx prisma db seed
-````
+```
