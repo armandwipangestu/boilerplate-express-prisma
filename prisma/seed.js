@@ -1,4 +1,5 @@
 import prisma from "../db/prisma.js";
+import { createCategories } from "./seed/helper/Categorys.js";
 import { clean } from "./seed/helper/clean.js";
 import { createPostsOfUser } from "./seed/helper/PostsOfUser.js";
 import { createUserWithProfile } from "./seed/helper/UserWithProfile.js";
@@ -26,6 +27,15 @@ async function main() {
         })
         .catch((error) => {
             console.log(`Seeder createPostsOfUser error: ${error}`);
+        });
+
+    console.log(`Seeding createCategories`);
+    await createCategories(10)
+        .then((categories) => {
+            console.log(`Seeder createCategories success!`);
+        })
+        .catch((error) => {
+            console.log(`Seeder createCategories error: ${error}`);
         });
 
     console.log(`Seeding finished.`);
