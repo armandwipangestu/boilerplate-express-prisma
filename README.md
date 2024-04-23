@@ -3,6 +3,13 @@
 
 <img src="assets/banner.png">
 
+## Table of Contents
+
+-   [Running on Localhost](#running-on-localhost)
+-   [Data Models](#data-models)
+-   [Prisma Cheatsheet](#prisma-cheatsheet)
+-   [Bundling and Running the Docker Container]()
+
 ## Running on Localhost
 
 -   Clone this repository
@@ -123,4 +130,41 @@ npx prisma studio
 
 ```bash
 npx prisma db seed
+```
+
+## Bundling and Running the Docker Container
+
+-   Build the app into container
+
+```bash
+docker build -t boilerplate-express-prisma .
+```
+
+-   Running the container
+
+```bash
+docker run -it -p 5000:5000 boilerplate-express-prisma
+```
+
+-   Running with Compose
+
+> **Note**: Add this `boilerplate-express-prisma` service into `docker-compose.yaml` file
+
+```yaml
+version: "3"
+services:
+    db: ...
+
+    adminer: ...
+
+    boilerplate-express-prisma:
+        build:
+            context: .
+        environment:
+            DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/testDB?schema=public"
+            API_VERSION: "/api/v1"
+        depends_on:
+            - db
+        ports:
+            - "5000:5000"
 ```
