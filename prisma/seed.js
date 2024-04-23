@@ -8,11 +8,10 @@ async function main() {
     console.log(`Database cleaned.`);
 
     console.log(`Start seeding ...`);
+    console.log(`Seeding createdUserWithProfile`);
     await createUserWithProfile(10)
         .then((usersWithProfiles) => {
-            console.log(
-                `Seeder createUserWithProfile success: ${usersWithProfiles}`
-            );
+            console.log(`Seeder createUserWithProfile success!`);
         })
         .catch((error) => {
             console.log(`Seeder createdUserWithProfile error: ${error}`);

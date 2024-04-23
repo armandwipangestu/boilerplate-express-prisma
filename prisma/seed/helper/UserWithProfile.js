@@ -31,6 +31,18 @@ const createUserWithProfile = async (count) => {
 
             // Menyimpan pengguna dan profil dalam array
             usersWithProfiles.push({ newUser, newProfile });
+
+            console.log(`========== START USER & PROFILE ${i + 1} ==========`);
+            console.log(`User: {
+    email: ${newUser.email}
+    name: ${newUser.name}
+    role: ${newUser.role}
+}`);
+            console.log(`Profile: {
+    bio: ${newProfile.bio}
+}`);
+            console.log(`========== END USER & PROFILE ${i + 1} ==========`);
+            console.log(`\n`);
         } catch (error) {
             console.error("Error creating user with profile:", error);
             // Handle error jika ada
