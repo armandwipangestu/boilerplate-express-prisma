@@ -73,7 +73,7 @@ npx prisma init
 
 -   Introspection
 
-Run this command if you have already database and inside the database already defined the tables, so primsa introspection will create the data model based on the tables inside your database. So the database will be the single source of tools.
+Run this command if you have already database and inside the database already defined the tables, so prisma introspection will create the data model based on the tables inside your database. So the database will be the single source of tools.
 
 ```bash
 npx prisma db pull
