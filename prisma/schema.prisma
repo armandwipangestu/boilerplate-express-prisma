@@ -14,8 +14,8 @@ datasource db {
 }
 
 model User {
-  id      String   @unique @default(uuid())
-  user_id Int      @id @default(autoincrement())
+  id      Int      @id @default(autoincrement())
+  uid     String   @unique @default(uuid()) @map("_uid")
   email   String   @unique
   name    String
   role    Role?    @default(USER)
@@ -26,26 +26,26 @@ model User {
 }
 
 model Profile {
-  id         String @unique @default(uuid())
-  profile_id Int    @id @default(autoincrement())
-  bio        String
+  id  Int    @id @default(autoincrement())
+  uid String @unique @default(uuid()) @map("_uid")
+  bio String
 
   userId Int  @unique
-  user   User @relation(fields: [userId], references: [user_id], onDelete: Cascade, onUpdate: Cascade)
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   @@map("profiles")
 }
 
 model Post {
-  id        String   @unique @default(uuid())
-  post_id   Int      @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
+  uid       String   @unique @default(uuid()) @map("_uid")
   title     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   published Boolean  @default(false)
 
   authorId Int
-  author   User @relation(fields: [authorId], references: [user_id], onDelete: Cascade, onUpdate: Cascade)
+  author   User @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   CategorysOnPost CategorysOnPost[]
 
@@ -54,19 +54,19 @@ model Post {
 
 model CategorysOnPost {
   postId Int
-  post   Post @relation(fields: [postId], references: [post_id], onDelete: Cascade, onUpdate: Cascade)
+  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   categoryId Int
-  category   Category @relation(fields: [categoryId], references: [category_id], onDelete: Cascade, onUpdate: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   @@id([postId, categoryId])
   @@map("_CategorysOnPost")
 }
 
 model Category {
-  id          String @unique @default(uuid())
-  category_id Int    @id @default(autoincrement())
-  name        String
+  id   Int    @id @default(autoincrement())
+  uid  String @unique @default(uuid()) @map("_uid")
+  name String
 
   CategorysOnPost CategorysOnPost[]
 

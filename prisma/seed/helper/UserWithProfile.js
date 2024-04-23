@@ -23,7 +23,7 @@ const createUserWithProfile = async (count) => {
                     bio: faker.lorem.sentence(),
                     user: {
                         connect: {
-                            user_id: newUser.user_id,
+                            id: newUser.id,
                         },
                     },
                 },
