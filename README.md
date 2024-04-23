@@ -41,6 +41,18 @@ cp .env.example .env
 DATABASE_URL="postgresql://username:password@localhost:5432/database_name?schema=public"
 ```
 
+-   Migrate the database
+
+```bash
+npx prisma migrate dev
+```
+
+-   Seeding the tables
+
+```bash
+npx prisma db seed
+```
+
 -   Running the app
 
 ```bash
