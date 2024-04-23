@@ -1,6 +1,8 @@
 <h1 align="center">Boilerplate Express Prisma</h1>
 <p align="center">Simple Boilerplate Express.js, Prisma ORM, Docker Compose, PostgreSQL Database</p>
 
+<img src="assets/banner.png">
+
 ## Running on Localhost
 
 -   Clone this repository
