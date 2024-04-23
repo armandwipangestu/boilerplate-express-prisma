@@ -5,6 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "nodemon ./src/app.js",
+        "clean": "node prisma/clean.js",
         "lint": "eslint ./src"
     },
     "prisma": {
