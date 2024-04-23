@@ -8,7 +8,7 @@
 -   [Running on Localhost](#running-on-localhost)
 -   [Data Models](#data-models)
 -   [Prisma Cheatsheet](#prisma-cheatsheet)
--   [Bundling and Running the Docker Container]()
+-   [Bundling and Running the Docker Container](#bundling-and-running-the-docker-container)
 
 ## Running on Localhost
 
